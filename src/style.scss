@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$font-size: 16px;
+
+@layer base {
+
+  html {
+    font-size: $font-size;
+  }
+
+  .app-text-heading {
+    font-size: 2rem;
+    @apply font-bold;
+    line-height: 1em;
+    letter-spacing: -.0625rem;
+  }
+
+  .app-text-body-m {
+    font-size: 1.125rem;
+    line-height: 1.5em;
+    letter-spacing: 0;
+  }
+
+  .app-text-body-m-bold {
+    @extend .app-text-body-m;
+    @apply font-bold;
+  }
+
+  .app-text-body-s {
+    font-size: 1rem;
+    line-height: 1.5em;
+    letter-spacing: 0;
+  }
+}
