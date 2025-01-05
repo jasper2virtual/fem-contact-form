@@ -4,10 +4,20 @@
 
 $font-size: 16px;
 
+@font-face {
+  font-family: 'Karla';
+  src: url(/src/assets/fonts/Karla-VariableFont_wght.ttf) format('truetype');
+}
+@font-face{
+  font-family: 'Karla';
+  src: url(/src/assets/fonts/Karla-Italic-VariableFont_wght.ttf) format('truetype');
+}
+
 @layer base {
 
   html {
     font-size: $font-size;
+    font-family: Karla;
   }
 
   .app-text-heading {
