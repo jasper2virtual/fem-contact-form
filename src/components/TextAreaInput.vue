@@ -15,7 +15,7 @@ const props = defineProps<{
 }>()
 const errorMsg = ref('')
 const onInvalid = (e: Event) => {
-    errorMsg.value = e.target.validationMessage
+    errorMsg.value = (e.target as HTMLTextAreaElement).validationMessage
 }
 const inputVal = ref('')
 watch(inputVal, () => {

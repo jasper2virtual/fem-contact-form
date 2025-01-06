@@ -20,7 +20,7 @@ const props = defineProps<{
 }>()
 const errorMsg = ref('')
 const onInvalid = (e: Event) => {
-    errorMsg.value = e.target.validationMessage
+    errorMsg.value = (e.target as HTMLInputElement).validationMessage
 }
 const inputVal = ref('')
 watch(inputVal, () => {
