@@ -2,6 +2,7 @@
     <div class="flex flex-col">
         <label class="flex gap-2">
             <input type="checkbox" class="checkbox [--chkbg:theme(colors.green.600)]" required
+                v-model="inputVal"
                 @invalid.prevent="onInvalid" />
             {{ props.label }} *
         </label>
@@ -9,7 +10,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 const props = defineProps<{
     label: string;
 }>()
@@ -17,4 +18,8 @@ const errorMsg = ref('')
 const onInvalid = (e: Event) => {
     errorMsg.value = e.target.validationMessage
 }
+const inputVal = ref(false)
+watch(inputVal, () => {
+    errorMsg.value = ''
+})
 </script>

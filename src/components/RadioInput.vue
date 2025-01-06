@@ -1,16 +1,31 @@
 <template>
-    <label class="radio-input tablet:flex-1 app-text-body-m">
-        <input type="radio" :name="props.name" :value="props.value" required />
-        {{ props.label }}
-    </label>
+    <div class="flex flex-col">
+        <div class="flex flex-col gap-4 tablet:flex-row">
+            <label class="radio-input tablet:flex-1 app-text-body-m" v-for="item in props.items" :key="item.value">
+                <input type="radio" :name="props.name" :value="item.value" @invalid.prevent="onInvalid"
+                    v-model="inputVal" required />
+                {{ item.label }}
+            </label>
+        </div>
+        <span v-if="errorMsg" class=" text-red-400">{{ errorMsg }}</span>
+    </div>
+
 </template>
 
 <script lang="ts" setup>
+import { ref, watch } from 'vue'
 const props = defineProps<{
     name: string;
-    value:string;
-    label: string;
+    items: { value: string; label: string }[];
 }>()
+const errorMsg = ref('')
+const onInvalid = (e: Event) => {
+    errorMsg.value = e.target.validationMessage
+}
+const inputVal = ref('')
+watch(inputVal, () => {
+    errorMsg.value = ''
+})
 </script>
 
 <style lang="scss" scoped>

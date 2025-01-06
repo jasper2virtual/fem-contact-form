@@ -2,7 +2,7 @@
     <label class="text-input app-text-body-s">
         <span>{{ props.label }} *</span>
         <input :type="props.type" required @invalid.prevent="onInvalid" @blur="onBlur" v-model="inputVal" :class="{
-            'border-red-200': errorMsg
+            'border-red-400': errorMsg
         }" />
         <span v-if="errorMsg" class=" text-red-400">{{ errorMsg }}</span>
     </label>
