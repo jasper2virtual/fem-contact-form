@@ -39,7 +39,7 @@ import CheckboxInput from './CheckboxInput.vue'
 import MessageSent from './MessageSent.vue'
 
 const showSuccess = ref(false)
-const onSubmit = (e: Event) => {
+const onSubmit = () => {
    showSuccess.value = true
 }
 </script>
